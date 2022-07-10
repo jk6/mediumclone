@@ -2,11 +2,11 @@ import { DataSourceOptions } from 'typeorm';
 
 const config: DataSourceOptions = {
   type: 'postgres',
-  host: 'localhost',
-  port: 5433,
+  host: process.env.HOST,
+  port: Number(process.env.DBPORT),
   username: process.env.USERNAME,
   password: process.env.PASSWORD,
-  database: 'mediumclone',
+  database: process.env.DB,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: true,
 };
